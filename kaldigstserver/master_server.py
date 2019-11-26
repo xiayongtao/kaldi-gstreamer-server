@@ -121,7 +121,7 @@ class HttpChunkedRecognizeHandler(tornado.web.RequestHandler):
             logging.info("%s: Using worker %s" % (self.id, self.__str__()))
             self.worker.set_client_socket(self)
 
-            content_type = self.request.headers.get("Content-Type", None)
+            content_type = self.request.headers.get("Content-Type", 'application/json; charset=UTF-8')
             if content_type:
                 content_type = content_type_to_caps(content_type)
                 logging.info("%s: Using content type: %s" % (self.id, content_type))
